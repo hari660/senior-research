@@ -14,14 +14,14 @@ detector = cv2.aruco.ArucoDetector(aruco_dict, parameters)
 # Detect the markers
 corners, ids, rejected = detector.detectMarkers(gray)
 newCorners = [[int(i) for i in j] for j in corners[0][0]]
-print(newCorners)
-newImg = gray[100:199,100:199]
-cv2.imshow('dfdfd',newImg)
+# print(newCorners)
+# newImg = gray[100:199,100:199]
+# cv2.imshow('dfdfd',newImg)
 # Print the detected markers
 # print("Detected markers:", ids)
-# if ids is not None:
-#     cv2.aruco.drawDetectedMarkers(image, corners, ids)
-#     cv2.imwrite("marked.png",image)
-#     cv2.imshow('Detected Markers', image)
+if ids is not None:
+    cv2.aruco.drawDetectedMarkers(image, corners, ids)
+    cv2.imwrite("marked.png",image)
+    cv2.imshow('Detected Markers', image)
 cv2.waitKey(0)
 cv2.destroyAllWindows()
